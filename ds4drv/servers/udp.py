@@ -121,8 +121,8 @@ class UDPServer:
             buttons2 |= report.button_cross << 6
             buttons2 |= report.button_square << 7
         else:
-            buttons2 |= report.button_triangle << 7
-            buttons2 |= report.button_circle << 4
+            buttons2 |= report.button_triangle << 4
+            buttons2 |= report.button_circle << 7
             buttons2 |= report.button_cross << 5
             buttons2 |= report.button_square << 6
 
