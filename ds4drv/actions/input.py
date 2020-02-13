@@ -31,7 +31,7 @@ ReportAction.add_option("--udp-host", metavar="IP", default="127.0.0.1",
 ReportAction.add_option("--udp-port", metavar="PORT", type=int, default=26760,
                         help="Port that will be listened by the UDP server")
 ReportAction.add_option("--udp-remap-buttons", action="store_true",
-                        help="Swap A↔B and X↔Y in UDP reports")
+                        help="Swap A-B and X-Y in UDP reports")
 
 
 class ReportActionInput(ReportAction):
@@ -52,6 +52,9 @@ class ReportActionInput(ReportAction):
 
     def setup(self, device):
         self.timer.start()
+
+        if self.server:
+            self.server.device(device)
 
     def disable(self):
         self.timer.stop()
